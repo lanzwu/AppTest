@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activityBackground">
+
+    <LinearLayout
+        android:id="@+id/fingerNum"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/oneFinger"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight"
+            android:gravity="center"
+            android:text="单指"
+            android:textSize="@dimen/showTextSize" />
+
+        <TextView
+            android:id="@+id/twoFinger"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight"
+            android:gravity="center"
+            android:text="双指"
+            android:textSize="@dimen/showTextSize" />
+
+        <TextView
+            android:id="@+id/threeFinger"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight"
+            android:gravity="center"
+            android:text="三指"
+            android:textSize="@dimen/showTextSize" />
+
+        <TextView
+            android:id="@+id/fourFinger"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight"
+            android:gravity="center"
+            android:text="四指"
+            android:textSize="@dimen/showTextSize" />
+
+        <TextView
+            android:id="@+id/fiveFinger"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight"
+            android:gravity="center"
+            android:text="五指"
+            android:textSize="@dimen/showTextSize" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="50dp"
+        android:layout_toEndOf="@id/fingerNum"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/slipToTop"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="向上滑动"
+            android:background="@color/white"
+            android:textSize="@dimen/timeOrPressureSize" />
+
+        <CheckBox
+            android:id="@+id/slipToBottom"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="30dp"
+            android:layout_toEndOf="@id/slipToTop"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="向下滑动"
+            android:background="@color/white"
+            android:textSize="@dimen/timeOrPressureSize" />
+
+        <CheckBox
+            android:id="@+id/slipToLeft"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/slipToTop"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="向左滑动"
+            android:background="@color/white"
+            android:textSize="@dimen/timeOrPressureSize" />
+
+        <CheckBox
+            android:id="@+id/slipToRight"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/slipToTop"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/slipToTop"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="向右滑动"
+            android:background="@color/white"
+            android:textSize="@dimen/timeOrPressureSize" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:background="@drawable/selector"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="退出"
+        android:textSize="@dimen/textSize"
+        android:onClick="exit" />
+</RelativeLayout>

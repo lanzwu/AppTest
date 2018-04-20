@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center"
+    android:background="@color/activityBackground">
+
+    <Button
+        android:id="@+id/draw5x5"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:text="5mmx5mm区域"
+        android:textAllCaps="false"
+        android:textSize="@dimen/textSize"
+        android:background="@drawable/chosen"
+        android:onClick="draw5x5"/>
+    <Button
+        android:id="@+id/draw7x7"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:text="7mmx7mm区域"
+        android:textAllCaps="false"
+        android:textSize="@dimen/textSize"
+        android:background="@drawable/chosen"
+        android:onClick="draw7x7"/>
+
+    <Button
+        android:id="@+id/startHandWrite"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:text="开始手写"
+        android:textSize="@dimen/textSize"
+        android:background="@drawable/chosen"
+        android:onClick="startHandWrite"/>
+
+    <Button
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:text="退出"
+        android:textSize="@dimen/textSize"
+        android:background="@drawable/selector"
+        android:onClick="exit"/>
+</LinearLayout>

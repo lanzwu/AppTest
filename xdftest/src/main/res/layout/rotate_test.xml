@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/activityBackground">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:id="@+id/mainScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/mainH"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="主屏横屏"
+                android:checked="true"
+                android:textSize="@dimen/textSize" />
+
+            <RadioButton
+                android:id="@+id/mainV"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="主屏竖屏"
+                android:textSize="@dimen/textSize" />
+
+            <RadioButton
+                android:id="@+id/mainHReverse"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="主屏横向翻转"
+                android:textSize="@dimen/textSize" />
+
+            <RadioButton
+                android:id="@+id/mainVReverse"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="主屏纵向翻转"
+                android:textSize="@dimen/textSize" />
+
+            <RadioButton
+                android:id="@+id/autoRotate"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="主屏跟随机器方向"
+                android:textSize="@dimen/textSize" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/epdScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/epdH"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="副屏横屏"
+                android:checked="true"
+                android:textSize="@dimen/textSize" />
+
+            <RadioButton
+                android:id="@+id/epdV"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="副屏竖屏"
+                android:textSize="@dimen/textSize" />
+
+            <RadioButton
+                android:id="@+id/epdHReverse"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="副屏横向翻转"
+                android:textSize="@dimen/textSize" />
+
+            <RadioButton
+                android:id="@+id/epdVReverse"
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/smallButtonHeight"
+                android:background="@drawable/selector"
+                android:text="副屏纵向翻转"
+                android:textSize="@dimen/textSize" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:background="@drawable/selector"
+        android:text="退出"
+        android:textSize="@dimen/textSize"
+        android:onClick="exit" />
+
+</LinearLayout>

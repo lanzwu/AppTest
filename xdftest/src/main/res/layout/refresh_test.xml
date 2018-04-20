@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deep_gray"
+    android:gravity="center">
+
+    <RadioGroup
+        android:id="@+id/modes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector"
+        android:textSize="@dimen/textSize">
+        <RadioButton
+            android:id="@+id/mode1"
+            android:text="MODE_DU2"
+            android:checked="true"
+            android:textSize="@dimen/textSize"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight" />
+        <RadioButton
+            android:id="@+id/mode2"
+            android:text="MODE_GC16"
+            android:textSize="@dimen/textSize"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight" />
+        <RadioButton
+            android:id="@+id/mode5"
+            android:text="MODE_GLD16"
+            android:textSize="@dimen/textSize"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight" />
+        <RadioButton
+            android:id="@+id/mode6"
+            android:text="MODE_A2"
+            android:textSize="@dimen/textSize"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:background="@drawable/selector"
+        android:text="退出"
+        android:textSize="@dimen/textSize"
+        android:onClick="exit"/>
+
+</LinearLayout>

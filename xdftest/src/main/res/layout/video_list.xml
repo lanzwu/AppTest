@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/volumeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+    <TextView
+        android:id="@+id/volume"
+        android:layout_width="@dimen/start_btn_width"
+        android:layout_height="@dimen/seekBar_height"
+        android:text="@string/volume"
+        android:textSize="@dimen/textSize"
+        android:gravity="center"/>
+    <SeekBar
+        android:id="@+id/volumeSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/seekBar_height" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/playControl"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <ImageButton
+            android:id="@+id/startBtn"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/seekBar_height"
+            android:background="@mipmap/play" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/seekBar_height">
+            <SeekBar
+                android:id="@+id/timeSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/half_seekBar_height"
+                android:layout_alignParentTop="true"/>
+            <TextView
+                android:id="@+id/currentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/half_seekBar_height"
+                android:layout_below="@+id/timeSeekBar"
+                android:text="0:00"
+                android:textSize="@dimen/textSize"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/endTime"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/half_seekBar_height"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/timeSeekBar"
+                android:text="0:00"
+                android:textSize="@dimen/textSize"
+                android:gravity="center"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/seekBar_height"
+        android:text="@string/fileList"
+        android:textSize="@dimen/textSize"
+        android:gravity="center"/>
+    <ListView
+        android:id="@+id/videoList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
+</LinearLayout>

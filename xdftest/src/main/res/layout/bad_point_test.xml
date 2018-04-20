@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center"
+    android:background="@color/activityBackground">
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="@dimen/buttonHeight"
+        android:text="全黑"
+        android:textSize="@dimen/textSize"
+        android:background="@drawable/selector"
+        android:onClick="black"/>
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="@dimen/buttonHeight"
+        android:text="全白"
+        android:textSize="@dimen/textSize"
+        android:background="@drawable/selector"
+        android:onClick="white"/>
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="@dimen/buttonHeight"
+        android:text="灰色"
+        android:textSize="@dimen/textSize"
+        android:background="@drawable/selector"
+        android:onClick="gray"/>
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="@dimen/buttonHeight"
+        android:text="退出"
+        android:textSize="@dimen/textSize"
+        android:background="@drawable/selector"
+        android:onClick="exit"/>
+</LinearLayout>

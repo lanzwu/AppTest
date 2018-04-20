@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/lt_btn"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/selector"
+        android:textSize="@dimen/textSize"
+        android:text="@string/next_step"/>
+
+    <Button
+        android:id="@+id/rt_btn"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/selector"
+        android:textSize="@dimen/textSize"
+        android:text="@string/next_step"/>
+
+    <Button
+        android:id="@+id/lb_btn"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector"
+        android:textSize="@dimen/textSize"
+        android:text="@string/next_step"/>
+
+    <Button
+        android:id="@+id/rb_btn"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/selector"
+        android:textSize="@dimen/textSize"
+        android:text="@string/next_step"/>
+
+    <Button
+        android:id="@+id/center_again_btn"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/selector"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/textSize"
+        android:text="@string/again"/>
+</RelativeLayout>

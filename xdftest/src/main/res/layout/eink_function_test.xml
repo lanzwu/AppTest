@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deep_gray"
+    android:gravity="center">
+
+    <RadioGroup
+        android:id="@+id/modes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector"
+        android:textSize="@dimen/textSize">
+        <RadioButton
+            android:id="@+id/mode1"
+            android:text="MODE_DU2"
+            android:checked="true"
+            android:textSize="@dimen/textSize"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight" />
+        <RadioButton
+            android:id="@+id/mode2"
+            android:text="MODE_GC16"
+            android:textSize="@dimen/textSize"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight" />
+        <RadioButton
+            android:id="@+id/mode5"
+            android:text="MODE_GLD16"
+            android:textSize="@dimen/textSize"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight" />
+        <RadioButton
+            android:id="@+id/mode6"
+            android:text="MODE_A2"
+            android:textSize="@dimen/textSize"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/smallButtonHeight" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/functions"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/slidePage"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="0dp"
+            android:text="滑动翻页"
+            android:textSize="@dimen/textSize"
+            android:background="@drawable/selector"
+            android:layout_weight="1" />
+        <RadioButton
+            android:id="@+id/clickButton"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="0dp"
+            android:text="点击按键"
+            android:textSize="@dimen/textSize"
+            android:background="@drawable/selector"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/refreshModes"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="0dp"
+            android:text="各刷新模式"
+            android:textSize="@dimen/textSize"
+            android:background="@drawable/selector"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/dragPicture"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="0dp"
+            android:text="拖动图片"
+            android:textSize="@dimen/textSize"
+            android:background="@drawable/selector"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/scale"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="0dp"
+            android:text="图片放大缩小"
+            android:textSize="@dimen/textSize"
+            android:background="@drawable/selector"
+            android:layout_weight="1" />
+        <RadioButton
+            android:id="@+id/showGif"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="0dp"
+            android:text="GIF播放"
+            android:textSize="@dimen/textSize"
+            android:background="@drawable/selector"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/playVideo"
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="0dp"
+            android:text="视频播放"
+            android:textSize="@dimen/textSize"
+            android:background="@drawable/selector"
+            android:layout_weight="1"/>
+    </RadioGroup>
+
+    <Button
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:background="@drawable/selector"
+        android:text="退出"
+        android:textSize="@dimen/textSize"
+        android:onClick="exit"/>
+</LinearLayout>

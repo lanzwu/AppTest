@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.xdftest">
+
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--<activity-->
+            <!--android:name="io.vov.vitamio.activity.InitActivity"-->
+            <!--android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"-->
+            <!--android:launchMode="singleTop"-->
+            <!--android:theme="@android:style/Theme.NoTitleBar"-->
+            <!--android:windowSoftInputMode="stateAlwaysHidden" />-->
+
+        <activity
+            android:name="com.android.xdftest.MainActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="utils.BaseActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="BaseActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.BadPointTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="BadPointTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.GrayLevelTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="GrayLevelTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.ShowPictureTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="ShowPictureTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.CrossTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="CrossTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.ShowTextTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="ShowTextTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.MultiTouchTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="MultiTouchTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.ButtonTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="ButtonTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.TouchAreaTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="TouchAreaTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.HandWriteEffectTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="HandWriteEffectTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.PressureTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="PressureTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.HandWriteTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="HandWriteTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.LCDControlTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="LCDControlTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.RefreshTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="RefreshTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.EinkFunctionTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="EinkFunctionTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.TemperatureTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="TemperatureTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.RotateTest"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="RotateTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.PlayVideoTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="PlayVideoTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.EMRTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="EMRTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.PenTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="PenTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.android.xdftest.OverLoadTest"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="OverLoadTest" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
