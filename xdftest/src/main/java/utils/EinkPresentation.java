@@ -105,17 +105,18 @@ public class EinkPresentation extends Presentation implements Dismiss {
 
     public void setPictures(final int[] res) {
         setContentView(R.layout.test_surface_view);
-        SurfaceView surfaceView = findViewById(R.id.showPicture);
+        final SurfaceView surfaceView = findViewById(R.id.showPicture);
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 canvas = surfaceHolder.lockCanvas();
-                Paint paint = new Paint();
-                paint.setTextSize(50);
-                paint.setColor(Color.WHITE);
-                canvas.drawText(getResources().getString(R.string.tip), 100, 300, paint);
+//                Paint paint = new Paint();
+//                paint.setTextSize(50);
+//                paint.setColor(Color.WHITE);
+//                canvas.drawText(getResources().getString(R.string.tip), 100, 300, paint);
                 surfaceHolder.unlockCanvasAndPost(canvas);
+                surfaceView.callOnClick();
             }
 
             @Override
@@ -339,7 +340,7 @@ public class EinkPresentation extends Presentation implements Dismiss {
                 @Override
                 public void surfaceCreated(SurfaceHolder surfaceHolder) {
                     timer = new Timer();
-                    timer.schedule(changeTask, 200, period);
+                    timer.schedule(changeTask, 800, period);
                 }
 
                 @Override
@@ -382,10 +383,9 @@ public class EinkPresentation extends Presentation implements Dismiss {
             };
 
         } else {
-            if (changeTask != null && timer != null) {
+            if (timer != null) {
                 changeTask.cancel();
                 timer.cancel();
-                drawColor(Color.BLACK);
             }
         }
     }

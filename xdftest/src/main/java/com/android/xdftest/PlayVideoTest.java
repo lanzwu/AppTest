@@ -74,6 +74,7 @@ public class PlayVideoTest extends BaseActivity {
         videoList.setAdapter(adapter);
 
         showPresentation();
+        refresh();
         presentation.initVideoView();
 
         startBtn = findViewById(R.id.startBtn);

@@ -43,8 +43,8 @@ public class HandWriteCageView extends AppCompatImageView {
         screenHeight = EinkPresentation.screenHeight;
         screenWidth = EinkPresentation.screenWidth;
 
-        marginLeft = 20;
-        marginTop = 20;
+        marginLeft = 50;
+        marginTop = 50;
 
         paint = new Paint();
         paint.setAntiAlias(true);
@@ -64,7 +64,7 @@ public class HandWriteCageView extends AppCompatImageView {
         int num = 0;
         for (int i = 0; i < screenWidth - marginLeft; i = i + 130) {
             for (int j = 0; j < screenHeight - marginTop; j = j + 150) {
-                if ((cage5x5.top + j) <= (screenHeight / 5) && (cage5x5.right + i) <= (screenWidth / 6)) {
+                if ((cage5x5.top + j) <= (screenHeight / 5 * 2) && (cage5x5.right + i) <= (screenWidth / 3)) {
                     canvas.drawRect(cage5x5.left + i, cage5x5.top + j, cage5x5.right + i, cage5x5.bottom + j, paint);
                     bundle.putIntArray(TestConstants.CAGE, new int[]{cage5x5.left + i, cage5x5.top + j, cage5x5.right + i, cage5x5.bottom + j});
                     message.setData(bundle);
@@ -82,7 +82,7 @@ public class HandWriteCageView extends AppCompatImageView {
         int num = 0;
         for (int i = 0; i < screenWidth - marginLeft; i = i + 130) {
             for (int j = 0; j < screenHeight - marginTop; j = j + 150) {
-                if ((cage7x7.top + j) <= (screenHeight / 5) && (cage7x7.right + i) <= (screenWidth / 6)) {
+                if ((cage7x7.top + j) <= (screenHeight / 5 * 2) && (cage7x7.right + i) <= (screenWidth / 3)) {
                     canvas.drawRect(cage7x7.left + i, cage7x7.top + j, cage7x7.right + i, cage7x7.bottom + j, paint);
                     bundle.putIntArray(TestConstants.CAGE, new int[]{cage7x7.left + i, cage7x7.top + j, cage7x7.right + i, cage7x7.bottom + j});
                     message.setData(bundle);

@@ -2,6 +2,8 @@ package com.android.xdftest;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +29,8 @@ import utils.TestConstants;
 public class EinkFunctionTest extends BaseActivity {
 
     RadioGroup modes;
+    Timer refreshTimer;
+    TimerTask refreshTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,22 +49,30 @@ public class EinkFunctionTest extends BaseActivity {
                 switch (i) {
                     case R.id.slidePage:
                         presentation.slidePage();
+                        refresh();
                         break;
                     case R.id.clickButton:
                         presentation.clickButton();
-                        break;
-                    case R.id.refreshModes:
-                        modes.setVisibility(View.VISIBLE);
-                        presentation.autoChangePicture(TestConstants.res, false, 1000);
+                        refresh();
                         break;
                     case R.id.dragPicture:
                         presentation.dragPicture();
+                        refreshTimer = new Timer();
+                        refreshTask = new TimerTask() {
+                            @Override
+                            public void run() {
+                                okayManager.enableEinkForceUpdate();
+                            }
+                        };
+                        refreshTimer.schedule(refreshTask, 1000, 3000);
                         break;
                     case R.id.scale:
                         presentation.scalePicture();
+                        refresh();
                         break;
                     case R.id.showGif:
                         presentation.showGif();
+                        refresh();
                         break;
                     case R.id.playVideo:
                         radioGroup.clearCheck();
@@ -69,27 +81,7 @@ public class EinkFunctionTest extends BaseActivity {
                         presentation = null;
                         break;
                 }
-            }
-        });
 
-        modes.setVisibility(View.INVISIBLE);
-        modes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i) {
-                    case R.id.mode1:
-                        okayManager.setEinkMode(1);
-                        break;
-                    case R.id.mode2:
-                        okayManager.setEinkMode(2);
-                        break;
-                    case R.id.mode5:
-                        okayManager.setEinkMode(5);
-                        break;
-                    case R.id.mode6:
-                        okayManager.setEinkMode(6);
-                        break;
-                }
             }
         });
     }
@@ -101,12 +93,11 @@ public class EinkFunctionTest extends BaseActivity {
     }
 
     public void initModes() {
-        if (presentation != null) {
-            presentation.autoChangePicture(TestConstants.res, true , 1000);
-        }
-        modes.setVisibility(View.INVISIBLE);
         okayManager.setEinkMode(1);
-        modes.check(R.id.mode1);
+        if(refreshTimer != null){
+            refreshTimer.cancel();
+            refreshTimer = null;
+        }
     }
 
     public void exit(View view) {

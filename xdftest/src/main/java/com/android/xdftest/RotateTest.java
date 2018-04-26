@@ -30,9 +30,9 @@ import utils.BaseActivity;
  */
 
 public class RotateTest extends Activity {
-    private IEpdRotation rotation;
-    private IEpdRoListener listener;
-    private int deviceOrientation;
+//    private IEpdRotation rotation;
+//    private IEpdRoListener listener;
+//    private int deviceOrientation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +40,12 @@ public class RotateTest extends Activity {
 
         android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, 1);
 
-        AlbumOrientationEventListener mAlbumOrientationEventListener = new AlbumOrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL);
-        if (mAlbumOrientationEventListener.canDetectOrientation()) {
-            mAlbumOrientationEventListener.enable();
-        } else {
-            Log.d("zhouxiangyu", "Can't Detect Orientation");
-        }
+//        AlbumOrientationEventListener mAlbumOrientationEventListener = new AlbumOrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL);
+//        if (mAlbumOrientationEventListener.canDetectOrientation()) {
+//            mAlbumOrientationEventListener.enable();
+//        } else {
+//            Log.d("zhouxiangyu", "Can't Detect Orientation");
+//        }
 
         RadioGroup mainScreen = findViewById(R.id.mainScreen);
         mainScreen.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -71,117 +71,112 @@ public class RotateTest extends Activity {
             }
         });
 
-        RadioGroup epdScreen = findViewById(R.id.epdScreen);
-        epdScreen.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i){
-                    case R.id.epdH:
-                        try {
-                            rotation.updateEpdRotation(0, true);
-                        }catch (Exception e){
-                            Log.d("zhouxiangyu",e.toString());
-                        }
-                        break;
-                    case R.id.epdV:
-                        try {
-                            rotation.updateEpdRotation(1, true);
-                        }catch (Exception e){
-                            Log.d("zhouxiangyu",e.toString());
-                        }
-                        break;
-                    case R.id.epdHReverse:
-                        try {
-                            rotation.updateEpdRotation(2, true);
-                        }catch (Exception e){
-                            Log.d("zhouxiangyu",e.toString());
-                        }
-                        break;
-                    case R.id.epdVReverse:
-                        try {
-                            rotation.updateEpdRotation(3, true);
-                        }catch (Exception e){
-                            Log.d("zhouxiangyu",e.toString());
-                        }
-                        break;
-                }
-            }
-        });
+//        RadioGroup epdScreen = findViewById(R.id.epdScreen);
+//        epdScreen.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//                switch (i){
+//                    case R.id.epdH:
+//                        try {
+//                            rotation.updateEpdRotation(0, true);
+//                        }catch (Exception e){
+//                            Log.d("zhouxiangyu",e.toString());
+//                        }
+//                        break;
+//                    case R.id.epdV:
+//                        try {
+//                            rotation.updateEpdRotation(1, true);
+//                        }catch (Exception e){
+//                            Log.d("zhouxiangyu",e.toString());
+//                        }
+//                        break;
+//                    case R.id.epdHReverse:
+//                        try {
+//                            rotation.updateEpdRotation(2, true);
+//                        }catch (Exception e){
+//                            Log.d("zhouxiangyu",e.toString());
+//                        }
+//                        break;
+//                    case R.id.epdVReverse:
+//                        try {
+//                            rotation.updateEpdRotation(3, true);
+//                        }catch (Exception e){
+//                            Log.d("zhouxiangyu",e.toString());
+//                        }
+//                        break;
+//                }
+//            }
+//        });
 
 
 
-        ServiceConnection connection = new ServiceConnection() {
-
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                rotation = IEpdRotation.Stub.asInterface(service);
-                listener = new RotateListener();
-                try {
-                    rotation.registerListener(listener);
-                }catch (Exception e){
-                    Log.d("zhouxiangyu",e.toString());
-                }
-            }
-
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-
-            }
-        };
-
-        Intent intent = new Intent("com.android.systemui.action.EPD_ROTATION");
-        intent.setPackage("com.android.systemui");
-        this.bindService(intent, connection, Context.BIND_AUTO_CREATE);
+//        ServiceConnection connection = new ServiceConnection() {
+//
+//            @Override
+//            public void onServiceConnected(ComponentName name, IBinder service) {
+//                rotation = IEpdRotation.Stub.asInterface(service);
+//                listener = new RotateListener();
+//                try {
+//                    rotation.registerListener(listener);
+//                }catch (Exception e){
+//                    Log.d("zhouxiangyu",e.toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onServiceDisconnected(ComponentName name) {
+//
+//            }
+//        };
+//
+//        Intent intent = new Intent("com.android.systemui.action.EPD_ROTATION");
+//        intent.setPackage("com.android.systemui");
+//        this.bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
-    private class AlbumOrientationEventListener extends OrientationEventListener {
-        public AlbumOrientationEventListener(Context context) {
-            super(context);
-        }
+//    private class AlbumOrientationEventListener extends OrientationEventListener {
+//        public AlbumOrientationEventListener(Context context) {
+//            super(context);
+//        }
+//
+//        public AlbumOrientationEventListener(Context context, int rate) {
+//            super(context, rate);
+//        }
+//
+//        @Override
+//        public void onOrientationChanged(int orientation) {
+//            if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {
+//                return;
+//            }
+//
+//            //保证只返回四个方向
+//            int newOrientation = ((orientation + 45) / 90 * 90) % 360;
+//            if(newOrientation != deviceOrientation){
+//                deviceOrientation = newOrientation;
+//                Log.d("zhouxiangyu","deviceOrientation "+deviceOrientation);
+//            }
+//        }
+//    }
 
-        public AlbumOrientationEventListener(Context context, int rate) {
-            super(context, rate);
-        }
 
-        @Override
-        public void onOrientationChanged(int orientation) {
-            if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {
-                return;
-            }
-
-            //保证只返回四个方向
-            int newOrientation = ((orientation + 45) / 90 * 90) % 360;
-            if(newOrientation != deviceOrientation){
-                deviceOrientation = newOrientation;
-                Log.d("zhouxiangyu","deviceOrientation "+deviceOrientation);
-            }
-        }
-    }
-
-
-    private class RotateListener extends IEpdRoListener.Stub{
-        @Override
-        public boolean onRotationCompleted() throws RemoteException {
-            //to do something here
-            Log.d("zhouxiangyu","onRotationCompleted"+rotation.getEpdRotation());
-            return true;
-        }
-
-        @Override
-        public void onRotationNoChanged() throws RemoteException {
-
-        }
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
+//    private class RotateListener extends IEpdRoListener.Stub{
+//        @Override
+//        public boolean onRotationCompleted() throws RemoteException {
+//            //to do something here
+//            Log.d("zhouxiangyu","onRotationCompleted"+rotation.getEpdRotation());
+//            return true;
+//        }
+//
+//        @Override
+//        public void onRotationNoChanged() throws RemoteException {
+//
+//        }
+//    }
 
     public void exit(View view){
         try {
             android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, 0);
-            rotation.unregisterListener();
+//            rotation.unregisterListener();
         }catch (Exception e){
             Log.d("zhouxiangyu",e.toString());
         }

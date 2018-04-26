@@ -2,6 +2,7 @@ package com.android.xdftest;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
@@ -9,21 +10,21 @@ import android.widget.RadioGroup;
 import com.example.xdftest.R;
 
 import utils.BaseActivity;
+import utils.TestConstants;
 
 /**
  * Created by zhouxiangyu on 2018/1/3.
  */
 
 public class TemperatureTest extends BaseActivity {
-    private int[] res;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.refresh_test);
 
-        res = new int[]{R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d, R.mipmap.e};
         showPresentation();
-        presentation.autoChangePicture(res,false, 1000);
+        presentation.autoChangePicture(TestConstants.res,false, 1000);
 
         RadioGroup modes = findViewById(R.id.modes);
         modes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -40,17 +41,36 @@ public class TemperatureTest extends BaseActivity {
                         okayManager.setEinkMode(5);
                         break;
                     case R.id.mode6:
+                        //优化从GC16切换到A2头几张图片模糊的问题
+                        presentation.autoChangePicture(TestConstants.res,true, 0);
                         okayManager.setEinkMode(6);
+                        presentation.drawColor(Color.BLACK);
+                        refresh();
                         break;
                 }
             }
         });
     }
 
+    public void refresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presentation.autoChangePicture(TestConstants.res,false, 1000);
+            }
+        },800);
+    }
+
     public void exit(View view){
         Log.d("zhouxiangyu","TemperatureTest exit");
         okayManager.setEinkMode(1);
-        presentation.autoChangePicture(res,true, 1000);
-        this.finish();
+        presentation.autoChangePicture(TestConstants.res,true, 0);
+        presentation.drawColor(Color.BLACK);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                TemperatureTest.this.finish();
+            }
+        },500);
     }
 }

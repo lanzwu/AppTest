@@ -12,6 +12,7 @@ import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.ServiceManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -93,6 +94,15 @@ public class BaseActivity extends Activity {
     public void showPresentation(){
         presentation.setColor(Color.WHITE);
         presentation.show();
+    }
+
+    public void refresh(){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                okayManager.enableEinkForceUpdate();
+            }
+        },800);
     }
 
     @Override
