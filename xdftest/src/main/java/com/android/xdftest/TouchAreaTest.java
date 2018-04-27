@@ -39,6 +39,7 @@ public class TouchAreaTest extends BaseActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 presentation.changeMode(i);
+                refresh();
                 id = i;
                 disablePenWrite();
                 switch (i) {
@@ -112,7 +113,7 @@ public class TouchAreaTest extends BaseActivity {
     public void exit(View view) {
         Log.d("zhouxiangyu", "TouchAreaTest exit");
         disablePenWrite();
-        presentation.setColor(Color.BLACK);
+        presentation.drawColor(Color.BLACK);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -57,18 +57,11 @@ public class EinkFunctionTest extends BaseActivity {
                         break;
                     case R.id.dragPicture:
                         presentation.dragPicture();
-                        refreshTimer = new Timer();
-                        refreshTask = new TimerTask() {
-                            @Override
-                            public void run() {
-                                okayManager.enableEinkForceUpdate();
-                            }
-                        };
-                        refreshTimer.schedule(refreshTask, 1000, 3000);
+                        refreshTimer.schedule(refreshTask, 1000, 4000);
                         break;
                     case R.id.scale:
                         presentation.scalePicture();
-                        refresh();
+                        refreshTimer.schedule(refreshTask, 1000, 4000);
                         break;
                     case R.id.showGif:
                         presentation.showGif();
@@ -98,10 +91,21 @@ public class EinkFunctionTest extends BaseActivity {
             refreshTimer.cancel();
             refreshTimer = null;
         }
+        refreshTimer = new Timer();
+        refreshTask = new TimerTask() {
+            @Override
+            public void run() {
+                okayManager.enableEinkForceUpdate();
+            }
+        };
     }
 
     public void exit(View view) {
         Log.d("zhouxiangyu", "EinkFunctionTest exit");
+        if(refreshTimer != null){
+            refreshTimer.cancel();
+            refreshTimer = null;
+        }
         presentation.drawColor(Color.BLACK);
         new Handler().postDelayed(new Runnable() {
             @Override

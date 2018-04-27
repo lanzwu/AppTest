@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,13 @@ public class MainActivity extends BaseActivity {
         if (powerManager != null) {
             wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "MainActivity");
             wakeLock.acquire();
+        }
+
+        Button overLoad = findViewById(R.id.overLoadTest);
+        if("open".equals(SystemProperties.get("sys.overload.test"))){
+            overLoad.setVisibility(View.VISIBLE);
+        }else{
+            overLoad.setVisibility(View.INVISIBLE);
         }
     }
 

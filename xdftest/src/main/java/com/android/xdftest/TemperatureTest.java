@@ -42,8 +42,8 @@ public class TemperatureTest extends BaseActivity {
                         break;
                     case R.id.mode6:
                         //优化从GC16切换到A2头几张图片模糊的问题
-                        presentation.autoChangePicture(TestConstants.res,true, 0);
                         okayManager.setEinkMode(6);
+                        presentation.autoChangePicture(TestConstants.res,true, 0);
                         presentation.drawColor(Color.BLACK);
                         refresh();
                         break;
