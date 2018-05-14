@@ -79,11 +79,6 @@ public class DrawLineView extends AppCompatImageView {
 
                 if (name.equals("HandWriteEffectTest")) {
                     time = System.nanoTime();
-                    if(event.getToolType(0) == MotionEvent.TOOL_TYPE_FINGER) {
-                        positionX = event.getX();
-                        positionY = event.getY();
-                        line.moveTo(positionX, positionY);
-                    }
                 } else {
                     if(event.getToolType(0) == MotionEvent.TOOL_TYPE_STYLUS) {
                         pressure = event.getPressure();
@@ -95,12 +90,6 @@ public class DrawLineView extends AppCompatImageView {
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (name.equals("HandWriteEffectTest")) {
-                    if(event.getToolType(0) == MotionEvent.TOOL_TYPE_FINGER) {
-                        line.quadTo(positionX, positionY, event.getX(), event.getY());
-                        positionX = event.getX();
-                        positionY = event.getY();
-                        postInvalidate();
-                    }
                     double delta = (System.nanoTime() - time) / 1000000000.0;
                     bundle.putString("time", String.format(Locale.US, "%.2f", delta) + "s");
                     message.setData(bundle);

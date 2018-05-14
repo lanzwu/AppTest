@@ -61,6 +61,8 @@ public class MultiTouchTest extends BaseActivity {
         showPresentation();
         presentation.multiTouch();
 
+        okayManager.setEinkMode(6);
+
         positionHandler = new PositionHandler(this);
 
     }
@@ -102,7 +104,8 @@ public class MultiTouchTest extends BaseActivity {
 
     public void exit(View view) {
         Log.d("zhouxiangyu", "MultiTouchTest exit");
-        presentation.setColor(Color.BLACK);
+        presentation.drawColor(Color.BLACK);
+        okayManager.setEinkMode(1);
         enableBackBtn(false);
         new Handler().postDelayed(new Runnable() {
             @Override

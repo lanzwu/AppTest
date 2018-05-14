@@ -6,31 +6,30 @@
     android:gravity="center"
     android:background="@color/activityBackground">
 
-    <RadioGroup
-        android:id="@+id/mode"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:background="@drawable/selector"
-        android:textSize="@dimen/textSize">
-        <RadioButton
-            android:id="@+id/hand"
-            android:text="手"
-            android:textSize="@dimen/textSize"
-            android:checked="true"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/smallButtonHeight"/>
-        <RadioButton
-            android:id="@+id/pen"
-            android:text="笔"
-            android:textSize="@dimen/textSize"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/smallButtonHeight" />
-    </RadioGroup>
+    <!--<RadioGroup-->
+        <!--android:id="@+id/mode"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/selector"-->
+        <!--android:textSize="@dimen/textSize">-->
+        <!--<RadioButton-->
+            <!--android:id="@+id/hand"-->
+            <!--android:text="手"-->
+            <!--android:textSize="@dimen/textSize"-->
+            <!--android:checked="true"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/smallButtonHeight"/>-->
+        <!--<RadioButton-->
+            <!--android:id="@+id/pen"-->
+            <!--android:text="笔"-->
+            <!--android:textSize="@dimen/textSize"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/smallButtonHeight" />-->
+    <!--</RadioGroup>-->
     <RadioGroup
         android:id="@+id/methods"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="200dp"
         android:layout_height="match_parent"
         android:background="@drawable/selector"
         android:textSize="@dimen/textSize">
@@ -80,18 +79,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/beginDrawLine"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="@dimen/smallButtonHeight"
-        android:background="@drawable/selector"
-        android:text="开始划线"
-        android:textSize="@dimen/textSize"
-        android:onClick="begin"/>
-
-    <Button
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/smallButtonHeight"
         android:background="@drawable/selector"
         android:text="退出"

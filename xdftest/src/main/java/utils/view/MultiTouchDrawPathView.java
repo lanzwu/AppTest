@@ -31,6 +31,7 @@ public class MultiTouchDrawPathView extends AppCompatImageView {
     float[] positionX;
     float[] positionY;
     ArrayList<Path> path = new ArrayList<>();
+    boolean canMove = true;
 
     public MultiTouchDrawPathView(Context context) {
         super(context);
@@ -82,18 +83,20 @@ public class MultiTouchDrawPathView extends AppCompatImageView {
                     readAndSendPositions(pointNum, positionX, positionY, motionEvent);
                 } else {
                     cleanScreen();
-                    Log.d("zhouxiangyu","pendown");
                 }
                 break;
             case MotionEvent.ACTION_POINTER_DOWN:
                 if (motionEvent.getToolType(motionEvent.getPointerCount() - 1) == MotionEvent.TOOL_TYPE_FINGER) {
-                    if (pointNum <= 5) {
+                    if (pointNum <= 5 && canMove) {
                         positionX = new float[pointNum];
                         positionY = new float[pointNum];
                         readAndSendPositions(pointNum, positionX, positionY, motionEvent);
+                    }else if(pointNum > 5){
+                        cleanScreen();
+                        return true;
                     }
 
-                    if (pointNum == 5) {
+                    if (pointNum == 5 && canMove) {
                         picture = Bitmap.createBitmap(EinkPresentation.screenWidth, EinkPresentation.screenHeight, Bitmap.Config.ARGB_8888);
                         canvas = new Canvas(picture);
                         createPath();
@@ -106,22 +109,32 @@ public class MultiTouchDrawPathView extends AppCompatImageView {
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (motionEvent.getToolType(motionEvent.getPointerCount() - 1) == MotionEvent.TOOL_TYPE_FINGER) {
-                    if (pointNum == 5) {
+                    if (pointNum <= 5 && canMove) {
+                        readAndSendPositions(pointNum, positionX, positionY, motionEvent);
+                    }else if(pointNum > 5){
+                        cleanScreen();
+                        return true;
+                    }
+                    if (pointNum == 5 && canMove) {
                         for (int a = 0; a < pointNum; a++) {
-                            path.get(a).quadTo(positionX[a], positionY[a], motionEvent.getX(a), motionEvent.getY(a));
+                            path.get(a).quadTo(positionX[a], positionY[a], (positionX[a]+motionEvent.getX(a))/2, (positionY[a]+motionEvent.getY(a))/2);
                             canvas.drawPath(path.get(a), pathPaint);
                             this.setImageBitmap(picture);
+                            positionX[a] = (positionX[a]+motionEvent.getX(a))/2;
+                            positionY[a] = (positionY[a]+motionEvent.getY(a))/2;
                         }
-                    }
-                    if (pointNum <= 5) {
-                        readAndSendPositions(pointNum, positionX, positionY, motionEvent);
                     }
                 }
                 break;
             case MotionEvent.ACTION_UP:
                 cleanScreen();
+                canMove = true;
                 break;
             case MotionEvent.ACTION_POINTER_UP:
+                cleanScreen();
+                if(pointNum <= 5){
+                    canMove = true;
+                }
                 break;
 
         }
@@ -129,6 +142,7 @@ public class MultiTouchDrawPathView extends AppCompatImageView {
     }
 
     private void cleanScreen(){
+        canMove = false;
         readAndSendPositions(0, null, null, null);
         picture = Bitmap.createBitmap(EinkPresentation.screenWidth, EinkPresentation.screenHeight, Bitmap.Config.ARGB_8888);
         this.setImageBitmap(picture);

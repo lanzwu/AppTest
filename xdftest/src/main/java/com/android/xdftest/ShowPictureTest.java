@@ -1,14 +1,21 @@
 package com.android.xdftest;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.xdftest.R;
 
 import utils.BaseActivity;
+import utils.TestConstants;
 
 /**
  * Created by zhouxiangyu on 2017/12/20.
@@ -21,21 +28,46 @@ public class ShowPictureTest extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exit);
 
-        int[] res = new int[]{R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d, R.mipmap.e};
         showPresentation();
-        presentation.setPictures(res);
-
+        presentation.setPictures(TestConstants.res);
+        Log.d("zhouxiangyu", "onCreate");
     }
 
-    public void exit(View view){
-        Log.d("zhouxiangyu","ShowPictureTest exit");
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        okayManager.disableFastHandWrite();
+//        presentation.dismiss();
+//        Log.d("zhouxiangyu", " mPresentation.dismiss();");
+//    }
+//
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                presentation.show();
+//                Log.d("zhouxiangyu", "show mPresentation");
+//            }
+//        }, 3000);
+//        okayManager.setEinkMode(1);
+//        okayManager.setHandWriteArea(new Rect[]{new Rect(71, 420, 1828, 1359)});
+//        okayManager.enableFastHandWrite();
+//
+//    }
+
+    public void exit(View view) {
+        Log.d("zhouxiangyu", "ShowPictureTest exit");
         presentation.drawColor(Color.BLACK);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 ShowPictureTest.this.finish();
             }
-        },500);
+        }, 500);
     }
 
 }

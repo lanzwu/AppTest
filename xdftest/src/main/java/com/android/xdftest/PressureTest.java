@@ -31,6 +31,7 @@ public class PressureTest extends BaseActivity {
         textView.setText(getResources().getString(R.string.handWritePressure));
 
         startFullScreenHandwrite();
+        okayManager.setEinkFinger(false);
 
         handler = new PressureHandler(this);
 
@@ -63,8 +64,9 @@ public class PressureTest extends BaseActivity {
 
     public void exit(View view){
         Log.d("zhouxiangyu","PressureTest exit");
+        okayManager.setEinkFinger(true);
         closeHandWrite();
-        presentation.setColor(Color.BLACK);
+        presentation.drawColor(Color.BLACK);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

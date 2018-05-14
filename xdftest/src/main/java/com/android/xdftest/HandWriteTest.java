@@ -83,7 +83,6 @@ public class HandWriteTest extends BaseActivity {
                     startHandWrite.setTextColor(getResources().getColor(R.color.black, null));
 
                     closeHandWrite();
-                    presentation.setColor(Color.WHITE);
                     presentation.drawCages(TestConstants.DRAW_7x7_CAGES);
                     break;
                 case R.id.startHandWrite:
@@ -131,7 +130,7 @@ public class HandWriteTest extends BaseActivity {
     public void exit(View view){
         Log.d("zhouxiangyu","HandWriteTest exit");
         closeHandWrite();
-        presentation.setColor(Color.BLACK);
+        presentation.drawColor(Color.BLACK);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

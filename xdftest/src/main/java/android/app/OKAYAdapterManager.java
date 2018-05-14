@@ -28,4 +28,15 @@ public class OKAYAdapterManager {
         return true;
     }
 
+    public boolean setHandWriteStroke(float strokeWidth) {
+        return true;
+    }
+
+    public boolean setEinkFinger(boolean enable) {
+        return true;
+    }
+
+    public boolean setEinkPen(boolean enable) {
+        return true;
+    }
 }

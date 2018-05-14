@@ -13,21 +13,21 @@ import android.widget.RadioGroup;
 import com.example.xdftest.R;
 
 import utils.BaseActivity;
+import utils.TestConstants;
 
 /**
  * Created by zhouxiangyu on 2017/12/31.
  */
 
 public class RefreshTest extends BaseActivity {
-    int[] res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.refresh_test);
-        res = new int[]{R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d, R.mipmap.e};
         showPresentation();
-        presentation.setPictures(res);
+        presentation.setPictures(TestConstants.res);
 
         RadioGroup modes = findViewById(R.id.modes);
         modes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -55,18 +55,16 @@ public class RefreshTest extends BaseActivity {
     }
 
     public void refresh() {
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                presentation.setPictures(res);
+                presentation.setPictures(TestConstants.res);
             }
         },800);
     }
 
     public void exit(View view){
         Log.d("zhouxiangyu","RefreshTest exit");
-        android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, 0);
         presentation.drawColor(Color.BLACK);
         okayManager.setEinkMode(1);
         new Handler().postDelayed(new Runnable() {

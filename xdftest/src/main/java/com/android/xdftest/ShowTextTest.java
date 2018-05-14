@@ -27,7 +27,7 @@ public class ShowTextTest extends BaseActivity {
 
     public void exit(View view){
         Log.d("zhouxiangyu","ShowTextTest exit");
-        presentation.setColor(Color.BLACK);
+        presentation.drawColor(Color.BLACK);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

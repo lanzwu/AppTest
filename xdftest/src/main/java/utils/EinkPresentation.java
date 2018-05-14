@@ -95,12 +95,12 @@ public class EinkPresentation extends Presentation implements Dismiss {
 
     }
 
-    public void setColor(final int color) {
-        getWindow().getDecorView().setBackgroundColor(color);
-    }
-
     public void setGrayLevel() {
         setContentView(R.layout.gray_level_16);
+    }
+
+    public void setPicture() {
+        setContentView(R.layout.epd_rotate);
     }
 
     public void setPictures(final int[] res) {
@@ -111,12 +111,14 @@ public class EinkPresentation extends Presentation implements Dismiss {
             @Override
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 canvas = surfaceHolder.lockCanvas();
-//                Paint paint = new Paint();
-//                paint.setTextSize(50);
-//                paint.setColor(Color.WHITE);
-//                canvas.drawText(getResources().getString(R.string.tip), 100, 300, paint);
                 surfaceHolder.unlockCanvasAndPost(canvas);
                 surfaceView.callOnClick();
+
+//                canvas = surfaceHolder.lockCanvas();
+//                Bitmap picture = BitmapFactory.decodeResource(getResources(), res[1]);
+//                picture = setMatrix(picture);
+//                canvas.drawBitmap(picture, 0, 0, null);
+//                surfaceHolder.unlockCanvasAndPost(canvas);
             }
 
             @Override
@@ -442,10 +444,6 @@ public class EinkPresentation extends Presentation implements Dismiss {
                 mp.setLooping(true);
             }
         });
-    }
-
-    public void rotate() {
-        setContentView(R.layout.rotate_test);
     }
 
     public void showEMR() {

@@ -57,10 +57,10 @@ public class BaseActivity extends Activity {
         enableHomeBtn(false);
 
         okayManager = (OKAYAdapterManager) getSystemService("okay");
-        if(okayManager == null){
+        if (okayManager == null) {
             Toast.makeText(this, "相关接口缺失，请更新最新系统版本！", Toast.LENGTH_LONG).show();
             this.finish();
-        }else{
+        } else {
             okayManager.setEinkMode(1);
         }
     }
@@ -91,18 +91,17 @@ public class BaseActivity extends Activity {
         }
     }
 
-    public void showPresentation(){
-        presentation.setColor(Color.WHITE);
+    public void showPresentation() {
         presentation.show();
     }
 
-    public void refresh(){
+    public void refresh() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 okayManager.enableEinkForceUpdate();
             }
-        },800);
+        }, 800);
     }
 
     @Override
@@ -180,9 +179,6 @@ public class BaseActivity extends Activity {
         super.onDestroy();
         enableBackBtn(false);
         MainActivity.enableClick = true;
-        if (presentation != null) {
-            presentation.setColor(Color.WHITE);
-        }
         if (dismiss != null) {
             dismiss.clearDialog();
         }

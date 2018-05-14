@@ -118,9 +118,6 @@ public class TouchAreaTestView extends AppCompatImageView {
 
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (!judgeMode(motionEvent)) {
-                return true;
-            }
             switch (motionEvent.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     positionX = motionEvent.getX();
@@ -157,7 +154,6 @@ public class TouchAreaTestView extends AppCompatImageView {
             }
         }
         this.setImageBitmap(picture);
-        this.setOnTouchListener(onTouchListener);
     }
 
     public void drawVerticalLines() {
@@ -174,7 +170,6 @@ public class TouchAreaTestView extends AppCompatImageView {
             }
         }
         this.setImageBitmap(picture);
-        this.setOnTouchListener(onTouchListener);
     }
 
     public void drawCenterToBorderLines() {
@@ -214,9 +209,7 @@ public class TouchAreaTestView extends AppCompatImageView {
 
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!judgeMode(motionEvent)) {
-                    return true;
-                }
+
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         if (motionEvent.getX() >= screenWidth / 2 - centerToBorderAreaHalfWidth && motionEvent.getX() <= screenWidth / 2 + centerToBorderAreaHalfWidth
@@ -377,9 +370,7 @@ public class TouchAreaTestView extends AppCompatImageView {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (!judgeMode(motionEvent)) {
-                    return true;
-                }
+
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         if (pointInPathArea(x, y, getPath(CENTER_PATH))) {
@@ -438,9 +429,7 @@ public class TouchAreaTestView extends AppCompatImageView {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 float pointX = motionEvent.getX();
                 float pointY = motionEvent.getY();
-                if (!judgeMode(motionEvent)) {
-                    return true;
-                }
+
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         if (hasDrawFirstLine && hasDrawSecondLine && !correctClick) {

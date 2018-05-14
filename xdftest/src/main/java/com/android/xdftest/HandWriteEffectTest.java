@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.xdftest.R;
 
 import java.lang.ref.WeakReference;
+import java.util.Locale;
 
 import utils.BaseActivity;
 
@@ -29,10 +31,11 @@ public class HandWriteEffectTest extends BaseActivity {
         setContentView(R.layout.button_and_text);
         textView = findViewById(R.id.buttonTest);
         textView.setText(getResources().getString(R.string.handWriteDrawLine));
-        showPresentation();
-        presentation.drawLine("HandWriteEffectTest");
 
         startFullScreenHandwrite();
+
+        showPresentation();
+        presentation.drawLine("HandWriteEffectTest");
 
         handler = new TimeHandler(this);
     }

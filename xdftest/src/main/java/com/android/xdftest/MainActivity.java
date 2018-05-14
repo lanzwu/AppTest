@@ -2,6 +2,7 @@ package com.android.xdftest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemProperties;
@@ -18,6 +19,7 @@ public class MainActivity extends BaseActivity {
 
     public static boolean enableClick = true;
     private PowerManager.WakeLock wakeLock;
+    private Intent keepScreenOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,11 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         setButtonListener(TestConstants.buttons);
 
-        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        if (powerManager != null) {
-            wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "MainActivity");
-            wakeLock.acquire();
-        }
+//        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+//        if (powerManager != null) {
+//            wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "MainActivity");
+//            wakeLock.acquire();
+//        }
 
         Button overLoad = findViewById(R.id.overLoadTest);
         if("open".equals(SystemProperties.get("sys.overload.test"))){
@@ -37,6 +39,16 @@ public class MainActivity extends BaseActivity {
         }else{
             overLoad.setVisibility(View.INVISIBLE);
         }
+
+//        Intent intentHide = new Intent();
+//        intentHide.setAction("epd.intent.action.IDLELOGO_HIDE");
+//        sendBroadcast(intentHide);
+
+        keepScreenOn = new Intent("action.no.sleep");
+        keepScreenOn.putExtra("noSleep",true);
+        sendBroadcast(keepScreenOn);
+
+        showPresentation();
     }
 
     public void setButtonListener(int[] buttons) {
@@ -109,7 +121,9 @@ public class MainActivity extends BaseActivity {
                     break;
                 case R.id.mainExit:
                     enableHomeBtn(true);
-                    wakeLock.release();
+                    //wakeLock.release();
+                    keepScreenOn.putExtra("noSleep",false);
+                    sendBroadcast(keepScreenOn);
                     finish();
                     break;
             }
