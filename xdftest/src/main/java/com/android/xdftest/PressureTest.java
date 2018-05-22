@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class PressureTest extends BaseActivity {
 
         startFullScreenHandwrite();
         okayManager.setEinkFinger(false);
+        SystemProperties.set("sys.close.subTp","1");
 
         handler = new PressureHandler(this);
 
@@ -64,6 +66,7 @@ public class PressureTest extends BaseActivity {
 
     public void exit(View view){
         Log.d("zhouxiangyu","PressureTest exit");
+        SystemProperties.set("sys.close.subTp","0");
         okayManager.setEinkFinger(true);
         closeHandWrite();
         presentation.drawColor(Color.BLACK);

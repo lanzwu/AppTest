@@ -3,6 +3,7 @@ package com.android.xdftest;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,19 +18,41 @@ import utils.BaseActivity;
  */
 
 public class TouchAreaTest extends BaseActivity {
-    private RadioGroup methods;
     public static boolean modePen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.touch_area_test);
-        methods = findViewById(R.id.methods);
+        RadioGroup methods = findViewById(R.id.methods);
+        RadioGroup mode = findViewById(R.id.mode);
 
         showPresentation();
         presentation.changeMode(R.id.drawHLines);
         startFullScreenHandwrite();
 
+        okayManager.setEinkPen(false);
+        SystemProperties.set("sys.close.wacomTp","1");
+
+        mode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i) {
+                    case R.id.hand:
+                        okayManager.setEinkFinger(true);
+                        SystemProperties.set("sys.close.subTp","0");
+                        okayManager.setEinkPen(false);
+                        SystemProperties.set("sys.close.wacomTp","1");
+                        break;
+                    case R.id.pen:
+                        okayManager.setEinkPen(true);
+                        SystemProperties.set("sys.close.wacomTp","0");
+                        okayManager.setEinkFinger(false);
+                        SystemProperties.set("sys.close.subTp","1");
+                        break;
+                }
+            }
+        });
         methods.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -62,6 +85,10 @@ public class TouchAreaTest extends BaseActivity {
 
     public void exit(View view) {
         Log.d("zhouxiangyu", "TouchAreaTest exit");
+        SystemProperties.set("sys.close.wacomTp","0");
+        SystemProperties.set("sys.close.subTp","0");
+        okayManager.setEinkPen(true);
+        okayManager.setEinkFinger(true);
         presentation.drawColor(Color.BLACK);
         closeHandWrite();
         new Handler().postDelayed(new Runnable() {

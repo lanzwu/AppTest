@@ -8,5 +8,5 @@ public class SystemProperties {
     public static String get(String key){
         return null;
     }
-    public static void set(String key, String defaultKey){}
+    public static void set(String key, String value){}
 }

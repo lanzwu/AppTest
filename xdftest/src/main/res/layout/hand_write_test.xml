@@ -25,15 +25,6 @@
         android:onClick="draw7x7"/>
 
     <Button
-        android:id="@+id/startHandWrite"
-        android:layout_width="@dimen/buttonWidth"
-        android:layout_height="@dimen/smallButtonHeight"
-        android:text="开始手写"
-        android:textSize="@dimen/textSize"
-        android:background="@drawable/chosen"
-        android:onClick="startHandWrite"/>
-
-    <Button
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="@dimen/smallButtonHeight"
         android:text="退出"

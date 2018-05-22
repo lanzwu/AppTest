@@ -102,6 +102,7 @@ public class RotateTest extends BaseActivity {
 
     public void exit(View view){
         android.provider.Settings.System.putInt(getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, 0);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         presentation.drawColor(Color.BLACK);
         intent.putExtra("orientation",3);
         sendBroadcast(intent);

@@ -62,6 +62,7 @@ public class BaseActivity extends Activity {
             this.finish();
         } else {
             okayManager.setEinkMode(1);
+            okayManager.setHandWriteStroke(2);
         }
     }
 

@@ -171,9 +171,11 @@ public class PlayVideoTest extends BaseActivity {
 
     private void initFiles(File root) {
         File[] files = root.listFiles();
-        for (File file : files) {
-            if (isFormatsSupported(file.getName())) {
-                nameList.add(new Item(file.getAbsolutePath(), file.getName()));
+        if(files != null && files.length != 0) {
+            for (File file : files) {
+                if (isFormatsSupported(file.getName())) {
+                    nameList.add(new Item(file.getAbsolutePath(), file.getName()));
+                }
             }
         }
     }

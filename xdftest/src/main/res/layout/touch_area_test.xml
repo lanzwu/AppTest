@@ -6,31 +6,30 @@
     android:gravity="center"
     android:background="@color/activityBackground">
 
-    <!--<RadioGroup-->
-        <!--android:id="@+id/mode"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="@drawable/selector"-->
-        <!--android:textSize="@dimen/textSize">-->
-        <!--<RadioButton-->
-            <!--android:id="@+id/hand"-->
-            <!--android:text="手"-->
-            <!--android:textSize="@dimen/textSize"-->
-            <!--android:checked="true"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="@dimen/smallButtonHeight"/>-->
-        <!--<RadioButton-->
-            <!--android:id="@+id/pen"-->
-            <!--android:text="笔"-->
-            <!--android:textSize="@dimen/textSize"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="@dimen/smallButtonHeight" />-->
-    <!--</RadioGroup>-->
+    <RadioGroup
+        android:id="@+id/mode"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector"
+        android:textSize="@dimen/textSize">
+        <RadioButton
+            android:id="@+id/hand"
+            android:text="手"
+            android:textSize="@dimen/textSize"
+            android:checked="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/smallButtonHeight"/>
+        <RadioButton
+            android:id="@+id/pen"
+            android:text="笔"
+            android:textSize="@dimen/textSize"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/smallButtonHeight" />
+    </RadioGroup>
     <RadioGroup
         android:id="@+id/methods"
         android:layout_width="200dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/selector"
         android:textSize="@dimen/textSize">
         <RadioButton
@@ -39,43 +38,37 @@
             android:checked="true"
             android:textSize="@dimen/textSize"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="@dimen/smallButtonHeight" />
         <RadioButton
             android:id="@+id/drawVLines"
             android:text="竖线30条"
             android:textSize="@dimen/textSize"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="@dimen/smallButtonHeight" />
         <RadioButton
             android:id="@+id/drawCenterToBorderLines"
             android:text="中心到四边"
             android:textSize="@dimen/textSize"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="@dimen/smallButtonHeight" />
         <RadioButton
             android:id="@+id/drawCenterToCornerLines"
             android:text="中心到四角"
             android:textSize="@dimen/textSize"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="@dimen/smallButtonHeight" />
         <RadioButton
             android:id="@+id/drawCross"
             android:text="十字"
             android:textSize="@dimen/textSize"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="@dimen/smallButtonHeight" />
         <RadioButton
             android:id="@+id/daubScreen"
             android:text="涂抹工具"
             android:textSize="@dimen/textSize"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="@dimen/smallButtonHeight" />
     </RadioGroup>
 
     <Button

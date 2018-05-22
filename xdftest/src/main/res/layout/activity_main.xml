@@ -108,6 +108,14 @@
                     android:background="@drawable/selector"
                     android:layout_weight="1"/>
                 <Button
+                    android:id="@+id/penWriteEffectTest"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="笔写跟随效果"
+                    android:textSize="@dimen/textSize"
+                    android:background="@drawable/selector"
+                    android:layout_weight="1"/>
+                <Button
                     android:id="@+id/handWriteEffectTest"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -123,14 +131,6 @@
                     android:textSize="@dimen/textSize"
                     android:background="@drawable/selector"
                     android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/buttonTest"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text="按键测试"
-                    android:textSize="@dimen/textSize"
-                    android:background="@drawable/selector"
-                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
@@ -139,6 +139,14 @@
                 android:layout_height="@dimen/smallButtonHeight"
                 android:orientation="horizontal"
                 android:paddingTop="10dp">
+                <Button
+                    android:id="@+id/buttonTest"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="按键测试"
+                    android:textSize="@dimen/textSize"
+                    android:background="@drawable/selector"
+                    android:layout_weight="1"/>
                 <Button
                     android:id="@+id/pressureTest"
                     android:layout_width="0dp"
@@ -163,14 +171,6 @@
                     android:textSize="@dimen/textSize"
                     android:background="@drawable/selector"
                     android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/einkFunctionTest"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text="副屏各功能测试"
-                    android:textSize="@dimen/textSize"
-                    android:background="@drawable/selector"
-                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
@@ -179,6 +179,14 @@
                 android:layout_height="@dimen/smallButtonHeight"
                 android:orientation="horizontal"
                 android:paddingTop="10dp">
+                <Button
+                    android:id="@+id/einkFunctionTest"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="副屏各功能测试"
+                    android:textSize="@dimen/textSize"
+                    android:background="@drawable/selector"
+                    android:layout_weight="1"/>
                 <Button
                     android:id="@+id/emrTest"
                     android:layout_width="0dp"
@@ -202,15 +210,6 @@
                     android:text="重载测试"
                     android:textSize="@dimen/textSize"
                     android:background="@drawable/selector"
-                    android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/signal"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text=""
-                    android:textSize="@dimen/textSize"
-                    android:background="@drawable/selector"
-                    android:visibility="invisible"
                     android:layout_weight="1"/>
             </LinearLayout>
         </LinearLayout>

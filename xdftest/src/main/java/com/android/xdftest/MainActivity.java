@@ -90,7 +90,14 @@ public class MainActivity extends BaseActivity {
                     startActivity(new Intent("TemperatureTest"));
                     break;
                 case R.id.handWriteEffectTest:
-                    startActivity(new Intent("HandWriteEffectTest"));
+                    Intent handEffect = new Intent("WriteEffectTest");
+                    handEffect.putExtra(TestConstants.MODE, TestConstants.MODE_HAND);
+                    startActivity(handEffect);
+                    break;
+                case R.id.penWriteEffectTest:
+                    Intent penEffect = new Intent("WriteEffectTest");
+                    penEffect.putExtra(TestConstants.MODE, TestConstants.MODE_PEN);
+                    startActivity(penEffect);
                     break;
                 case R.id.rotateTest:
                     startActivity(new Intent("RotateTest"));

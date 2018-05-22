@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ScrollView;
 
+import com.android.internal.widget.PointerLocationView;
 import com.android.xdftest.CrossTest;
 import com.android.xdftest.PlayVideoTest;
 import com.example.xdftest.R;
@@ -217,8 +218,9 @@ public class EinkPresentation extends Presentation implements Dismiss {
     };
 
     public void multiTouch() {
-        MultiTouchDrawPathView pathView = new MultiTouchDrawPathView(context);
-        setContentView(pathView);
+        //MultiTouchDrawPathView pathView = new MultiTouchDrawPathView(context);
+        PointerLocationView pointerLocationView = new PointerLocationView(context);
+        setContentView(pointerLocationView);
     }
 
     public void drawLine(String name) {

@@ -9,11 +9,9 @@ import android.graphics.Path;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v7.widget.AppCompatImageView;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 
-import com.android.xdftest.HandWriteEffectTest;
+import com.android.xdftest.WriteEffectTest;
 import com.android.xdftest.PressureTest;
 
 import java.util.Locale;
@@ -76,11 +74,10 @@ public class DrawLineView extends AppCompatImageView {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-
-                if (name.equals("HandWriteEffectTest")) {
+                if (name.equals("WriteEffectTest")) {
                     time = System.nanoTime();
                 } else {
-                    if(event.getToolType(0) == MotionEvent.TOOL_TYPE_STYLUS) {
+                    if (event.getToolType(0) == MotionEvent.TOOL_TYPE_STYLUS) {
                         pressure = event.getPressure();
                         bundle.putString("pressure", String.format(Locale.US, "%.3f", pressure));
                         message.setData(bundle);
@@ -89,13 +86,13 @@ public class DrawLineView extends AppCompatImageView {
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (name.equals("HandWriteEffectTest")) {
+                if (name.equals("WriteEffectTest")) {
                     double delta = (System.nanoTime() - time) / 1000000000.0;
                     bundle.putString("time", String.format(Locale.US, "%.2f", delta) + "s");
                     message.setData(bundle);
-                    HandWriteEffectTest.handler.handleMessage(message);
+                    WriteEffectTest.handler.handleMessage(message);
                 } else if (name.equals("PressureTest")) {
-                    if(event.getToolType(0) == MotionEvent.TOOL_TYPE_STYLUS) {
+                    if (event.getToolType(0) == MotionEvent.TOOL_TYPE_STYLUS) {
                         pressure = event.getPressure();
                         bundle.putString("pressure", String.format(Locale.US, "%.3f", pressure));
                         message.setData(bundle);
