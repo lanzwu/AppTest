@@ -20,6 +20,7 @@ public class EMRTest extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exit);
+        okayManager.setEinkMode(2);
         showPresentation();
         presentation.showEMR();
     }
@@ -27,6 +28,7 @@ public class EMRTest extends BaseActivity {
     public void exit(View view) {
         Log.d("zhouxiangyu", "EMRTest exit");
         presentation.drawColor(Color.BLACK);
+        okayManager.setEinkMode(1);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

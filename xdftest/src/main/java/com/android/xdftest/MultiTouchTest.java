@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -58,6 +59,9 @@ public class MultiTouchTest extends BaseActivity {
 //        surface = findViewById(R.id.drawPicture);
 //        newCanvas();
 //        surface.setImageBitmap(picture);
+        okayManager.setEinkPen(false);
+        SystemProperties.set("sys.close.wacomTp","1");
+
         showPresentation();
         presentation.multiTouch();
 
@@ -104,6 +108,8 @@ public class MultiTouchTest extends BaseActivity {
 
     public void exit(View view) {
         Log.d("zhouxiangyu", "MultiTouchTest exit");
+        okayManager.setEinkPen(true);
+        SystemProperties.set("sys.close.wacomTp","0");
         presentation.drawColor(Color.BLACK);
         okayManager.setEinkMode(1);
         new Handler().postDelayed(new Runnable() {
