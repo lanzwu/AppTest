@@ -4,11 +4,11 @@ android {
     compileSdkVersion 26
 
     defaultConfig {
-        applicationId "com.example.xdftest"
+        applicationId "com.android.xdftest"
         minSdkVersion 25
         targetSdkVersion 26
-        versionCode 4
-        versionName "1.1.4"
+        versionCode 5
+        versionName "1.1.5"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

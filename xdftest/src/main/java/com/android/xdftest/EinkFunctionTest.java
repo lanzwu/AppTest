@@ -1,26 +1,18 @@
 package com.android.xdftest;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
-
-import com.example.xdftest.R;
-
-import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import utils.BaseActivity;
 import utils.PermissionUtils;
-import utils.TestConstants;
 
 /**
  * Created by zhouxiangyu on 2018/1/2.

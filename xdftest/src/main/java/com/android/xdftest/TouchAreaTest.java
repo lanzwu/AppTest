@@ -6,11 +6,7 @@ import android.os.Handler;
 import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
-
-import com.example.xdftest.R;
-
 import utils.BaseActivity;
 
 /**

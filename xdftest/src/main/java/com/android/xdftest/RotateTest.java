@@ -1,33 +1,15 @@
 package com.android.xdftest;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.graphics.Color;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
-import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.provider.Settings;
-import android.util.Log;
-import android.view.OrientationEventListener;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
-import android.widget.Toast;
-
-import com.android.systemui.okepd.IEpdRoListener;
-import com.android.systemui.okepd.IEpdRotation;
-import com.example.xdftest.R;
-
 import utils.BaseActivity;
-import utils.TestConstants;
 
 /**
  * Created by zhouxiangyu on 2018/1/5.

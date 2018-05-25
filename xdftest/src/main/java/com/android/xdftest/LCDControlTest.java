@@ -1,31 +1,18 @@
 package com.android.xdftest;
 
 import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.xdftest.R;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-
 import utils.BaseActivity;
-import utils.EinkPresentation;
-import utils.TestConstants;
 import utils.view.LCDControlView;
 
 /**

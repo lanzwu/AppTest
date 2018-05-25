@@ -13,8 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.xdftest.R;
-
 import java.lang.ref.WeakReference;
 
 import utils.BaseActivity;

@@ -1,10 +1,6 @@
 package com.android.xdftest;
 
-import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,13 +9,8 @@ import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import com.example.xdftest.R;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-
 import utils.BaseActivity;
 import utils.TestConstants;
 

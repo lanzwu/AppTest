@@ -8,7 +8,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import com.example.xdftest.R;
+import com.android.xdftest.R;
 
 import utils.EinkPresentation;
 

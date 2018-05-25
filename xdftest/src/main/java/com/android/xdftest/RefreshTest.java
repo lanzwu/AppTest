@@ -1,16 +1,11 @@
 package com.android.xdftest;
 
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
-
-import com.example.xdftest.R;
 
 import utils.BaseActivity;
 import utils.TestConstants;

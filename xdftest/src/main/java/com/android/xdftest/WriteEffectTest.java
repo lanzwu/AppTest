@@ -8,9 +8,6 @@ import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-import com.example.xdftest.R;
-
 import java.lang.ref.WeakReference;
 
 import utils.BaseActivity;

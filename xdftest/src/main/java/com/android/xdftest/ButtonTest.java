@@ -8,9 +8,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
-
-import com.example.xdftest.R;
-
 import utils.BaseActivity;
 
 /**

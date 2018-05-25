@@ -3,15 +3,13 @@ package com.android.xdftest;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import com.example.xdftest.R;
-
-
 import utils.BaseActivity;
 import utils.TestConstants;
 
@@ -27,6 +25,9 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         setButtonListener(TestConstants.buttons);
 
+        okayManager.setPartialUpdateRegion(new Rect[]{new Rect(0, 0, 1872, 1404)});
+        okayManager.setHandWriteStroke(2);
+
 //        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
 //        if (powerManager != null) {
 //            wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "MainActivity");
@@ -34,9 +35,9 @@ public class MainActivity extends BaseActivity {
 //        }
 
         Button overLoad = findViewById(R.id.overLoadTest);
-        if("open".equals(SystemProperties.get("sys.overload.test"))){
+        if ("open".equals(SystemProperties.get("sys.overload.test"))) {
             overLoad.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             overLoad.setVisibility(View.INVISIBLE);
         }
 
@@ -45,7 +46,7 @@ public class MainActivity extends BaseActivity {
 //        sendBroadcast(intentHide);
 
         keepScreenOn = new Intent("action.no.sleep");
-        keepScreenOn.putExtra("noSleep",true);
+        keepScreenOn.putExtra("noSleep", true);
         sendBroadcast(keepScreenOn);
 
         showPresentation();
@@ -129,7 +130,7 @@ public class MainActivity extends BaseActivity {
                 case R.id.mainExit:
                     enableHomeBtn(true);
                     //wakeLock.release();
-                    keepScreenOn.putExtra("noSleep",false);
+                    keepScreenOn.putExtra("noSleep", false);
                     sendBroadcast(keepScreenOn);
                     finish();
                     break;

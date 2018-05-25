@@ -1,6 +1,6 @@
 package utils;
 
-import com.example.xdftest.R;
+import com.android.xdftest.R;
 
 /**
  * Created by zhouxiangyu on 2017/12/25.

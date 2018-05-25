@@ -13,7 +13,7 @@ public class BootReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d("zhouxiangyu", "boot");
+        Log.d("zhouxiangyu", "Intent : "+intent.getAction());
         //context.startActivity(new Intent("ShowPictureTest"));
     }
 }

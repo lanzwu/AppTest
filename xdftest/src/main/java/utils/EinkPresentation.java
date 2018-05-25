@@ -23,7 +23,7 @@ import android.widget.ScrollView;
 import com.android.internal.widget.PointerLocationView;
 import com.android.xdftest.CrossTest;
 import com.android.xdftest.PlayVideoTest;
-import com.example.xdftest.R;
+import com.android.xdftest.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

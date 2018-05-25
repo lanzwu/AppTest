@@ -1,14 +1,10 @@
 package com.android.xdftest;
 
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-
-import com.example.xdftest.R;
-
 import utils.BaseActivity;
 
 /**
