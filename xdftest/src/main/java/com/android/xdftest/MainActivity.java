@@ -1,13 +1,11 @@
 package com.android.xdftest;
 
-import android.content.Context;
+import android.app.ActivityManager;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemProperties;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import utils.BaseActivity;
@@ -23,6 +21,11 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(ActivityManager.isUserAMonkey()){
+            setAllButtonDisabled(TestConstants.buttons);
+        }
+
         setButtonListener(TestConstants.buttons);
 
         okayManager.setPartialUpdateRegion(new Rect[]{new Rect(0, 0, 1872, 1404)});
@@ -52,7 +55,16 @@ public class MainActivity extends BaseActivity {
         showPresentation();
     }
 
-    public void setButtonListener(int[] buttons) {
+    private void setAllButtonDisabled(int[] buttons){
+        for (int i = 0; i < buttons.length; i++) {
+            Button button = findViewById(buttons[i]);
+            if(buttons[i] != R.id.mainExit) {
+                button.setEnabled(false);
+            }
+        }
+    }
+
+    private void setButtonListener(int[] buttons) {
         for (int i = 0; i < buttons.length; i++) {
             Button button = findViewById(buttons[i]);
             button.setOnClickListener(listener);
