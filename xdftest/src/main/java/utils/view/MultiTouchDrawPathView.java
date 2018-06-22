@@ -59,11 +59,6 @@ public class MultiTouchDrawPathView extends PointerLocationView {
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int pointNum = motionEvent.getPointerCount();
-        if(pointNum <= 5) {
-            onPointerEvent(motionEvent);
-        }else{
-            return true;
-        }
         switch (motionEvent.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
                 if(!isFocused()){

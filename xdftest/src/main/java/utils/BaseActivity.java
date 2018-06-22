@@ -92,7 +92,9 @@ public class BaseActivity extends Activity {
     }
 
     public void showPresentation() {
-        presentation.show();
+        if(presentation != null) {
+            presentation.show();
+        }
     }
 
     public void refresh() {

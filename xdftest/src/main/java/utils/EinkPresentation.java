@@ -51,7 +51,7 @@ public class EinkPresentation extends Presentation implements Dismiss {
     private Timer timer;
     private TimerTask changeTask;
 
-    public EinkPresentation(Context outerContext, Display display) {
+    EinkPresentation(Context outerContext, Display display) {
         super(outerContext, display);
         this.context = outerContext;
         DisplayMetrics outMetrics = new DisplayMetrics();
