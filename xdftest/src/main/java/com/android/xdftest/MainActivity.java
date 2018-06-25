@@ -20,6 +20,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(ActivityManager.isUserAMonkey()){
+            this.finish();
+        }
+
         setContentView(R.layout.activity_main);
 
         if(ActivityManager.isUserAMonkey()){
